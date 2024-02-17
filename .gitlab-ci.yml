@@ -9,16 +9,13 @@ stages:
 - build
 - deploy
 variables:
-  LATEX_IMAGE: timnn/texlive
+  LATEX_IMAGE: leplusorg/latex
 
 build:
-  image: timnn/texlive
+  image: leplusorg/latex
   script:
-    - cd /usr/share/texlive/texmf-dist/tex/latex/base
-    - wget -r -np -R "index.html" http://$PathToAsset
-    - mv $PathToAsset* .
-    - texhash
-    - cd /builds/c7878/transmission_summary/
+    - wget -r -np -R "index.html" http://debber.ulyssis.be/LaTeX_Files/
+    - mv debber.ulyssis.be/LaTeX_Files/* .
     - make
   tags:
     - latex
