@@ -24,4 +24,41 @@
 				\label{fig:trans_line_2port}
 			\end{figure}
 			The transmitted power can range from a few µW (Ethernet) to several kW (AM radio). The characteristics of the transmission line depends on \textbf{two factors}: the frequency f of the signal and the length L of the line. 
+			
+		\subsection{Why do we use transmission lines?}
+			We need transmission lines because signals travel at finite speeds (usually $c=3\cdot10^8$). This introduces a delay in terminal 22' compared to 11' in figure \ref{fig:trans_line_2port}, essentially introducing a time shift of $L/c$ as seen in figure \ref{fig:delay_trans_line}.
+			
+			\begin{figure}[h]
+				\begin{center}
+					\begin{tikzpicture}[xscale=3,yscale=2]
+						\draw[->] (0,-1.3) -- (0,1.3);
+						\draw[->] (0,0)--(4.3,0);
+						\draw[domain=-0.1:4.3,samples=100,black] plot(\x,{sin(2*\x r)});
+						\draw[domain=-0.1:4.3,samples=100,black, dashed] plot(\x,{sin((2*\x-1) r)});
+						\draw[dashed] (0,0) -- (0,1.3);
+						\draw[dashed] (1/2,0) -- (1/2,1.3);
+						\draw[<->] (0,1.15) -- node[above]{\small $delay$} (1/2,1.15);
+						\draw(0.9,1.2)node[]{$V_ {11'}(t)$};
+						\draw(1.6,1.2)node[]{$V_ {22'}(t)$};
+					\end{tikzpicture}	
+				\end{center}
+				\caption{Delay between $V_{11'}(t)$ and $V_{22'}(t)$}
+				\label{fig:delay_trans_line}
+			\end{figure}
+			Mathematically this comes down to:
+			\begin{align}
+				V_{22'}(t) &= V_{11'}(t-\underbrace{L/c}_{delay})\\
+				&= V_0\cos[\omega(t-L/c)]\\
+				&=V_0\cos[\omega t-\underbrace{\omega L/c}_{phase shift}]
+			\end{align}
+			This gives us the \textbf{phase shift} $\omega L/c$, which is the determining factor for whether you need a  transmission line or not:
+			\begin{equation}
+				\frac{\omega L}{c} = \frac{2\pi fL}{c} = 2\pi\frac{L}{\lambda}
+			\end{equation}
+			In the end, it is \textbf{the ratio} of the physical line dimensions and the wave length $L/\lambda$ which determine the impact of the transmission line.  When it is very small, the effects can be neglected. However, when $L/\lambda > 0.01$ it becomes necessary to take into account not only the phase shift but also the other effects which will be handled in further chapters:
+			\begin{enumerate}
+				\item reflected signals
+				\item power loss
+				\item dispersion
+			\end{enumerate} 
 \end{document}
