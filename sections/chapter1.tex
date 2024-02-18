@@ -7,18 +7,18 @@
 			
 			\begin{figure}[h]
 				\begin{center}
-				\begin{circuitikz}[american]
-					%Generator circuit
-					\draw (0, 0) to[vsource, v=$V_g$,invert] (0,2) to[generic,l=$Z_g$] (2,2) node[ocirc, label=above:1]{}--(3,2)(3,0)--(2,0)node[ocirc, label=below:1']{}--(0,0);
-					\draw[dashed] (-1,-1) rectangle (1.8,3) (0.5,-1.3)node[]{Generator};
-					
-					%Transmission line box
-					\draw(3,2.2)--(7,2.2)--(7,-0.2)--(3,-0.2)--(3,2.2) (5,1)node[]{Transmission line};
-					
-					%Load circuit
-					\draw(7,2)--(8,2)node[ocirc, label=above:2]{}--(10,2)to[generic,l=$Z_L$](10,0)--(8,0)(7,0)--(8,0)node[ocirc, label=below:2']{};
-					\draw[dashed] (8.2,-1) rectangle (11,3) (9.5,-1.3)node[]{Load};
-				\end{circuitikz}
+					\begin{circuitikz}[american]
+						%Generator circuit
+						\draw (0, 0) to[vsource, v=$V_g$,invert] (0,2) to[generic,l=$Z_g$] (2,2) node[ocirc, label=above:1]{}--(3,2)(3,0)--(2,0)node[ocirc, label=below:1']{}--(0,0);
+						\draw[dashed] (-1,-1) rectangle (1.8,3) (0.5,-1.3)node[]{Generator};
+						
+						%Transmission line box
+						\draw(3,2.2)--(7,2.2)--(7,-0.2)--(3,-0.2)--(3,2.2) (5,1)node[]{Transmission line};
+						
+						%Load circuit
+						\draw(7,2)--(8,2)node[ocirc, label=above:2]{}--(10,2)to[generic,l=$Z_L$](10,0)--(8,0)(7,0)--(8,0)node[ocirc, label=below:2']{};
+						\draw[dashed] (8.2,-1) rectangle (11,3) (9.5,-1.3)node[]{Load};
+					\end{circuitikz}
 				\end{center}
 				\caption{Transmission line two-port representation}
 				\label{fig:trans_line_2port}
@@ -61,6 +61,7 @@
 				\item power loss
 				\item dispersion
 			\end{enumerate} 
+			
 		\subsection{Propagation modes}
 			There are two common types of transmission lines:
 			\begin{description}
@@ -68,4 +69,55 @@
 				\item[Higher-order transmission lines] Waves propagating along these types of lines have at least one significant field component in the direction of propagation. Wave guides and fibre optic cables are examples of this mode.
 			\end{description}
 			This course only deals with TEM modes.
+		
+		\newpage	
+		\subsection{Generalized line equations}
+			\subsubsection{Transmission line parameters}
+				In figure \ref{fig:trans_line_parameters}, we can see the model of a transmission line which we use to derive the generalized line equations. Notice that the voltage and current in the line is not only time based, but also location based. A further quirk of this model is that the x-axis is reversed to the normal convention. 
+				
+				\begin{figure}[h]
+					\begin{center}
+						\begin{circuitikz}[american]
+							%Generator circuit
+							\draw (0, 0) to[vsource, v=$V_g$,invert] (0,2) to[generic,l=$Z_g$] (2,2) node[ocirc, label=above:1]{}--(3,2)(3,0)--(2,0)node[ocirc, label=below:1']{}--(0,0);
+							\draw[dashed] (-1,-1) rectangle (1.8,3) (0.5,-1.3)node[]{Generator};
+							
+							%Transmission line box
+							\draw(3,2)-- (4,2) to[short, -, i=$I_{x,t}$] (6,2)--(7,2) (3,0)--(7,0);
+							\draw[<-] (1,-1.7) -- (9,-1.7) ;
+							\draw (2,-1.6)--(2,-1.8) (8,-1.6)--(8,-1.8);
+							\draw(2,-2.1)node[]{$x=L$};
+							\draw(8,-2.1)node[]{$x=0$};
+							\draw(5.3,1)node[]{$V_{x,t}$};
+							\draw[<-] (4.9,2) -- (4.9,0) ;
+							%Load circuit
+							\draw(7,2)--(8,2)node[ocirc, label=above:2]{}--(10,2)to[generic,l=$Z_L$](10,0)--(8,0)(7,0)--(8,0)node[ocirc, label=below:2']{};
+							\draw[dashed] (8.2,-1) rectangle (11,3) (9.5,-1.3)node[]{Load};
+						\end{circuitikz}
+					\end{center}
+					\caption{General depiction of a transmission line}
+					\label{fig:trans_line_parameters}
+				\end{figure}
+				We can split up the x-axis into infinitesimally small \textbf{lumped-element} models as seen in figure \ref{fig:trans_line_lumped_model}. This gives rise to four basic elements which we call \textbf{transmission line parameters}:
+				\begin{itemize}
+					\item $R'$: Resistance per meter of the two conductors together $[\Omega/m]$
+					\item $L'$: Inductance per meter of the two conductors together $[H/m]$
+					\item $C'$: Capacity per meter of the two conductors together $[F/m]$
+					\item $G'$: Conductance per meter between the two conductors $[S/m]$
+				\end{itemize}
+				\begin{figure}[h]
+					\begin{center}
+						\begin{circuitikz}[american]
+							\draw(0,2)node[ocirc]{}to[R, l=$R'dx$](2,2)to[L,l=$L'dx$](4,2)to[R,l_=$G'dx$](4,0)--(0,0)node[ocirc]{} (4,2)--(5,2)to[C,l=$C'dx$](5,0)--(4,0);
+							\draw (5,2)--(6,2)node[ocirc]{} (5,0)--(6,0)node[ocirc]{} ;
+							\draw(6,2)node[ocirc]{}to[R, l=$R'dx$](8,2)to[L,l=$L'dx$](11,2)to[R,l_=$G'dx$](11,0)--(6,0)node[ocirc]{} (11,2)--(12,2)to[C,l=$C'dx$](12,0)--(10,0);
+							\draw(3,-0.3)node[]{$dx$};
+							\draw(9,-0.3)node[]{$dx$};
+							\draw (12,2)--(13,2);
+							\draw (12,0)--(13,0);
+						\end{circuitikz}
+					\end{center}
+					\caption{Equivalent circuit for a transmission line}
+					\label{fig:trans_line_lumped_model}
+				\end{figure}
 \end{document}
