@@ -120,4 +120,10 @@
 					\caption{Equivalent circuit for a transmission line}
 					\label{fig:trans_line_lumped_model}
 				\end{figure}
+			\subsubsection{Skin effect}
+				The resistance $R'$ is always higher than the DC resistance of the conductor. This is due to the \textbf{skin effect} which occurs in AC currents. Essentially, it means that the current will not flow through the entire wire, but only a section of it. If the frequency increases, the section shrinks. For a circular conductor, we can define the following equation:
+				\begin{equation}
+					J = J_m e^{-x/\delta}
+				\end{equation}
+				Where $J_m$ is the density at the surface of the conductor and x is the radial distance from the surface. The \textbf{skin depth} $\delta$ can be calculated as $\delta = \sqrt{\frac{2\rho}{2\pi f\mu}}$ in most cases.
 \end{document}
