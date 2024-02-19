@@ -129,6 +129,7 @@
 				Where $J_m$ is the density at the surface of the conductor and x is the radial distance from the surface. The \textbf{skin depth} $\delta$ can be calculated as $\delta = \sqrt{\frac{2\rho}{2\pi f\mu}}$ in most cases.
 				
 			\subsubsection{Generalized equations}
+				\label{sec:generalized_eqn}
 				Applying KCL and KVL to one piece of figure \ref{fig:trans_line_lumped_model}, we get the following equations made up of partial differentials:
 				\begin{align}
 					\frac{\partial i(x,t)}{\partial x}&=G' v(x,t) + C'\frac{\partial v(x,t)}{\partial t}\\
@@ -160,5 +161,32 @@
 					&=Re[V(x)e^{j\omega t}]
 				\end{align*}	
 				
-				
+			\subsubsection{Why introduce phasors?}
+				\label{sec:why_phasors}
+				By introducing phasors into the base equations defined in section \ref{sec:generalized_eqn} we can simplify into:
+				\begin{align}
+					\frac{dI(x)}{dx}&=(G'+j\omega C')V(x)\\
+					\frac{dV(x)}{dx}&=(R'+j\omega L')I(x)
+				\end{align}
+				Deriving and re-factoring these again gives us the following equations:
+				\begin{align}
+					\frac{d^2V}{dx^2}&=(G'+j\omega C')(R'+j\omega L')V =\gamma^2V\\
+					\frac{d^2I}{dx^2}&=(G'+j\omega C')(R'+j\omega L')I = \gamma^2I
+				\end{align}
+				Here, we use $\gamma$, the \textbf{complex propagation constant}, as a way of simplifying notation. We can also rewrite it as:
+				\begin{equation}
+					\gamma = \alpha +j\beta
+				\end{equation}
+				Where $\alpha$ is the \textbf{attenuation constant} and $\beta$ is the \textbf{phase constant}.
+			
+			\subsubsection{Solution for sinusoidal steady state}
+				By working solving the differential equations introduced in section \ref{sec:why_phasors}, and introducing the \textbf{characteristic impedance of the line}:
+				\begin{equation}
+					Z_0 = \sqrt{\frac{R+j\omega L'}{G'+j\omega C'}}
+				\end{equation}
+				we get a general solution:
+				\begin{align}
+					V&=\frac{V_L+Z_0I_L}{2}e^{\gamma x}+\frac{V_L-Z_0I_L}{2}e^{-\gamma x}\\
+					I&=\frac{V_L+Z_0I_L}{2Z_0}e^{\gamma x}-\frac{V_L-Z_0I_L}{2Z_0}e^{-\gamma x}
+				\end{align}
 \end{document}
