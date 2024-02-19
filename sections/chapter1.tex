@@ -120,10 +120,24 @@
 					\caption{Equivalent circuit for a transmission line}
 					\label{fig:trans_line_lumped_model}
 				\end{figure}
+				
 			\subsubsection{Skin effect}
 				The resistance $R'$ is always higher than the DC resistance of the conductor. This is due to the \textbf{skin effect} which occurs in AC currents. Essentially, it means that the current will not flow through the entire wire, but only a section of it. If the frequency increases, the section shrinks. For a circular conductor, we can define the following equation:
 				\begin{equation}
 					J = J_m e^{-x/\delta}
 				\end{equation}
 				Where $J_m$ is the density at the surface of the conductor and x is the radial distance from the surface. The \textbf{skin depth} $\delta$ can be calculated as $\delta = \sqrt{\frac{2\rho}{2\pi f\mu}}$ in most cases.
+				
+			\subsubsection{Generalized equations}
+				Applying KCL and KVL to one piece of figure \ref{fig:trans_line_lumped_model}, we get the following equations made up of partial differentials:
+				\begin{align}
+					\frac{\partial i(x,t)}{\partial x}&=G' v(x,t) + C'\frac{\partial v(x,t)}{\partial t}\\
+					\frac{\partial v(x,t)}{\partial x}&= R' i(x,t)+L'\frac{\partial i(x,t)}{\partial t}
+				\end{align}
+				To remove the partial derivatives, we take another derivative of each equation and combine them:
+				\begin{equation}
+					\frac{\partial^2v}{\partial x^2} = R'G'v+(G'L'+R'C')\frac{\partial v}{\partial t}+C'L'\frac{\partial^2v}{\partial t^2}
+					\label{eq:telegraph_equation}
+				\end{equation}
+				Equation \ref{eq:telegraph_equation} is called the \textbf{telegraph equation}. One thing to note is that it has more solutions than the two partial derivatives on which it is based. In practice this means that not every solution for equation \ref{eq:telegraph_equation} is a valid one. Solutions should always be checked against the base partial derivatives.
 \end{document}
