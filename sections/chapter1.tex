@@ -140,4 +140,25 @@
 					\label{eq:telegraph_equation}
 				\end{equation}
 				Equation \ref{eq:telegraph_equation} is called the \textbf{telegraph equation}. One thing to note is that it has more solutions than the two partial derivatives on which it is based. In practice this means that not every solution for equation \ref{eq:telegraph_equation} is a valid one. Solutions should always be checked against the base partial derivatives.
+				
+		\subsection{Current and voltage in sinusoidal steady state}
+			\subsubsection{Phasor representation}
+				In sinusoidal steady state, we the \textbf{phasor representation} for voltage and current in a transmission line. 
+				\begin{align*}
+					i(x,t)&=I_m(x)\cos(\omega t+\varphi_i(x))\\
+					&=Re[I_m(x)e^{j\varphi_i(x)}e^{j\omega t}]\\
+					&=Re[I(x)e^{j\omega t}]
+				\end{align*}		
+				Where $I(x)$ = complex amplitude or phasor representation of i(x,t)
+				\begin{equation*}
+					I(x)=I_m(x)e^{j\varphi_i(x)}
+				\end{equation*}
+				Where $I_m$ is the amplitude and $\varphi_i(x)$ is the phase of the current i. Both are real. The same can be done for voltage:
+				\begin{align*}
+					v(x,t)&=V_m(x)\cos(\omega t+\varphi_v(x))\\
+					&=Re[V_m(x)e^{j\varphi_v(x)}e^{j\omega t}]\\
+					&=Re[V(x)e^{j\omega t}]
+				\end{align*}	
+				
+				
 \end{document}
