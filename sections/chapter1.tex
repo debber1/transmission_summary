@@ -144,6 +144,7 @@
 				
 		\subsection{Current and voltage in sinusoidal steady state}
 			\subsubsection{Phasor representation}
+				\label{sec:phasor_representation}
 				In sinusoidal steady state, we the \textbf{phasor representation} for voltage and current in a transmission line. 
 				\begin{align*}
 					i(x,t)&=I_m(x)\cos(\omega t+\varphi_i(x))\\
@@ -186,7 +187,9 @@
 				\end{equation}
 				we get a general solution:
 				\begin{align}
+					\label{eq:simple_voltage}
 					V&=\frac{V_L+Z_0I_L}{2}e^{\gamma x}+\frac{V_L-Z_0I_L}{2}e^{-\gamma x}\\
+					\label{eq:simple_current}
 					I&=\frac{V_L+Z_0I_L}{2Z_0}e^{\gamma x}-\frac{V_L-Z_0I_L}{2Z_0}e^{-\gamma x}
 				\end{align}
 \end{document}

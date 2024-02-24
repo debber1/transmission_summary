@@ -21,6 +21,15 @@
 					\beta = \omega\sqrt{L'C'}=2\pi\frac{f}{c}\sqrt{\epsilon_r}=2\pi\frac{\sqrt{\epsilon_r}}{\lambda_0}
 				\end{equation}
 				for the phase constant $\beta$.
-			
+		
+		\subsection{Voltage and current on the lossless line}
+			When we plug these simplifications into equations derived in section \ref{sec:phasor_representation}, we get the following:
+			\begin{align}
+				v(x,t)&=Re[Ve^{j\omega t}]\\
+				&=\underbrace{V^+_m\cos(\beta x+\omega t +\varphi_+)}_{\texttt{1st term}}+\underbrace{V_m^-\cos(-\beta x+\omega t+\varphi_-)}_{\texttt{2nd term}}\\
+				i(x,t)&=Re[Ie^{j\omega t}]\\
+				&=\frac{V^+_m}{R_0}\cos(\beta x+\omega t +\varphi_+)-\frac{V_m^-}{R_0}\cos(-\beta x+\omega t+\varphi_-)
+			\end{align}
+			This means that $v(x,t)$ and $i(x,t)$ consist of two superimposed waves travelling with constant amplitude and opposite propagation direction along the line.
 		
 \end{document}
