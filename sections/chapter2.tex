@@ -8,5 +8,19 @@
 				\item The \textbf{complex propagation constant} becomes $\gamma = j\omega\sqrt{L'C'}$, meaning that $\alpha$ (the attenuation constant) is 0 and $\beta$ (the phase constant) is $\omega\sqrt{L'C'}$.
 				\item The \textbf{characteristic impedance} becomes $Z_0 = \sqrt{\frac{L'}{C'}}=R_0$, a real-valued parameter.
 			\end{itemize}
+			Here, $L'$ is dependent on $\mu_r$, which is the relative permeability of the dielectric between the two transmission line conductors. $C'$ is dependent on $\epsilon_r$ which is the relative permittivity of the dielectric between the conductors.
+			\subsubsection{Characteristic impedance $R_0$}
+				The characteristic impedance depends on the geometry of the conductors. We can find three relations which will (without proof) hold true for a lossless transmission line:
+				\begin{itemize}
+					\item $\sqrt{\frac{\mu_0}{\epsilon_0}}=120\pi$
+					\item $R_0\sim \frac{1}{\sqrt{\epsilon_r}}$
+					\item $\mu_0\epsilon_0=\frac{1}{c^2}$
+				\end{itemize}
+				Using these relations, and the assumption that $\mu_r\approx1$ we get:
+				\begin{equation}
+					\beta = \omega\sqrt{L'C'}=2\pi\frac{f}{c}\sqrt{\epsilon_r}=2\pi\frac{\sqrt{\epsilon_r}}{\lambda_0}
+				\end{equation}
+				for the phase constant $\beta$.
 			
+		
 \end{document}
