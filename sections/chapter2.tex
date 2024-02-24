@@ -64,4 +64,18 @@
 					\caption{Example of a standing wave pattern on a transmission line}
 					\label{fig:chap02_standing_wave}
 				\end{figure}
+		
+		\subsection{The voltage reflection coefficient $\Gamma$}
+			The \textbf{reflection coefficient} $\Gamma$ is defined as the ratio of the phasor of the reflected voltage wave to the phasor of the direct voltage wave. It can be defined at any point on the line and is thus a function of $x$.
+			
+			The modulus of $\Gamma$ expresses the \textbf{amplitude ratio} of the direct and indirect wave, while the phase of $\Gamma$ indicates the \textbf{phase difference} between the two. At places where the phase difference is an even multiple of $\pi$ we get constructive interference, and thus an anti-node in figure \ref{fig:chap02_standing_wave}, an odd multiple gives us destructive interference and thus we get a node. \\
+			\\
+			Finally, we have the following formulas for calculating $\Gamma$:
+			\begin{equation}
+				\Gamma(x=0) = \frac{Z_L-R_0}{Z_L+R_0} = \Gamma_L
+			\end{equation}
+			and
+			\begin{equation}
+				\Gamma(x)=\Gamma_Le^{-j2\beta x}
+			\end{equation}
 \end{document}
