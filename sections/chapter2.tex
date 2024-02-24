@@ -23,6 +23,7 @@
 				for the phase constant $\beta$.
 		
 		\subsection{Voltage and current on the lossless line}
+			\label{sec:volt+curr_lossless_line}
 			When we plug these simplifications into equations derived in section \ref{sec:phasor_representation}, we get the following:
 			\begin{align}
 				v(x,t)&=Re[Ve^{j\omega t}]\\
@@ -47,6 +48,20 @@
 					\caption[The direct voltage wave]{The direct voltage wave}
 					\label{fig:chap02losslessdirectwave}
 				\end{figure}
+			
+			\subsubsection{The direct current wave}
+				The first term of the second equation in \ref{sec:volt+curr_lossless_line}, is called the \textbf{direct current wave}. This wave has the same properties as the direct voltage wave. 
+			
+			\subsubsection{The indirect waves}
+				The second term of both equations are called the \textbf{indirect or reflected voltage and current wave}. They also have similar properties to the direct voltage wave, but they travel in the opposite direction. They are represented by the second term of each equation if section \ref{sec:volt+curr_lossless_line}.
 				
+			\subsubsection{The standing wave}
+				The standing wave in a transmission line is the result of the superposition of a direct and indirect travelling wave with opposite directions of propagation.  Figure \ref{fig:chap02_standing_wave} is an example of these standing waves, each line depicts a voltage along the line at a different time instance.  The point at which the envelope of the lines reaches a maximum is called an \textbf{anti-node} and the minimum is called a \textbf{node}.
 				
+				\begin{figure}[h]
+					\centering
+					\includegraphics[width=\linewidth]{../assets/chap02_standing_wave.png}
+					\caption{Example of a standing wave pattern on a transmission line}
+					\label{fig:chap02_standing_wave}
+				\end{figure}
 \end{document}
