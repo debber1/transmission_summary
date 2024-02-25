@@ -114,5 +114,16 @@
 				
 				\paragraph{A note on impedances}
 					$Z_x$ is the ratio  of the \textbf{total} voltage (sum of direct and indirect waves) to the \textbf{total} current. This contrasts with the characteristic impedance of the line which gives the relationship betwen voltage and current of each wave  separately $R_0 = \frac{V^+}{I^+} = -\frac{V^-}{I^-}$. $R_0$ is the impedance ``seen'' by the travelling waves,  $Z_x$ is the impedance ``seen'' by the standing wave. 
+			
+			\subsubsection{The standing wave ratio (SWR)}
+				The \textbf{standing wave ratio (SWR)} is the ratio of the maximum value of the voltage amplitude to its minimum value in figure \ref{fig:chap02_standing_wave}.
+				\begin{equation}
+					SWR=\frac{|V|_{MAX}}{|V|_{MIN}}=\frac{1+|\Gamma|}{1-|\Gamma|}
+				\end{equation}
+				SWR will always be larger than or equal to one $SWR\geq1$ and a real number. We can use this fact to find the modulus of $\Gamma$, phase information is unfortunately lost though:
+				\begin{equation}
+					|\Gamma|=\frac{SWR-1}{SWR+1}
+				\end{equation}
 				
+				For a matched line, SWR will be equal to one, and for a line with total reflection it is infinite. 
 \end{document}
