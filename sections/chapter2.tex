@@ -99,4 +99,20 @@
 					V&=V^+e^{j\beta x}[1+\Gamma]\\
 					I&=\frac{V^+}{R_0}e^{j\beta x}[1-\Gamma]
 				\end{align}
+			
+			\subsubsection{The impedance of a piece of transmission line}
+				We can calculate the impedance $Z_x$ which is seen at the location $x$ on the line in the direction of the load as follows:
+				\begin{align}
+					Z_x &= \frac{V}{I} = R_0\frac{1+\Gamma}{1-\Gamma}\\
+					\Gamma&=\frac{Z_x-R_0}{Z_x+R_0}
+				\end{align}
+				
+				\paragraph{The matched line}
+					We get a \textbf{matched line} when $Z_L = R_0$, in this state the reflection coefficient becomes zero $\Gamma = \Gamma_L=0$. This means that there is \textbf{no reflected wave}. Often, this is a desirable situation in practice. Furthermore, this means that $Z_x = R_0$ independent of $x$.\\
+					
+					We can also derive a possible definition of $R_0$ as a result of this phenomenon: ``the characteristic impedance of a lossless line is the impedance that one measures in each point of the line when the line is closed with this impedance $R_0$''.
+				
+				\paragraph{A note on impedances}
+					
+				
 \end{document}
