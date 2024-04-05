@@ -14,6 +14,7 @@ variables:
 build:
   image: leplusorg/latex
   script:
+    - apt update && apt install wget texlive-science -y
     - wget -r -np -R "index.html" http://debber.ulyssis.be/LaTeX_Files/
     - mv debber.ulyssis.be/LaTeX_Files/* .
     - make
